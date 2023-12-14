@@ -10,7 +10,7 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t step, jdx;
+	size_t step, idx;
 	int temp, flag;
 
 	if (!array || size < 2)
@@ -19,14 +19,14 @@ void bubble_sort(int *array, size_t size)
 	for (step = 0; step < size - 1; step++)
 	{
 		flag = 0; /* swap checker */
-		for (jdx = 0; jdx < size - step - 1; jdx++)
+		for (idx = 0; idx < size - step - 1; idx++)
 		{
-			if (array[jdx] > array[jdx + 1])
+			if (array[idx] > array[idx + 1])
 			{
 				/* swap */
-				temp = array[jdx];
-				array[jdx] = array[jdx + 1];
-				array[jdx + 1] = temp;
+				temp = array[idx];
+				array[idx] = array[idx + 1];
+				array[idx + 1] = temp;
 				flag = 1; /* update flag */
 				print_array(array, size);
 			}
