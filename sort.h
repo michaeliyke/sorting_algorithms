@@ -2,6 +2,8 @@
 #define SORT_H
 
 #include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct listint_s - Doubly linked list node
@@ -27,5 +29,6 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 
 /*** Utilities ***/
+void swap(listint_t *back, listint_t *front);
 
 #endif
