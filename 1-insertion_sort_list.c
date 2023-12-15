@@ -28,7 +28,7 @@ void insertion_sort_list(listint_t **list)
 			if (node->prev->n > node->n) /* if not sorted */
 			{
 				/* swap */
-				swap(node->prev, node);
+				swapper(node->prev, node);
 				if (node->prev == NULL)
 					*list = node;
 
@@ -51,7 +51,7 @@ void insertion_sort_list(listint_t **list)
  * Return: void.
  */
 
-void swap(listint_t *back, listint_t *front)
+void swapper(listint_t *back, listint_t *front)
 {
 	if (back->prev)
 		back->prev->next = front;

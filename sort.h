@@ -48,6 +48,6 @@ int partition(int array[], int start, int end, size_t size);
 void quicksrt(int A[], int first, int last, size_t size);
 void swap(int *x, int *y);
 
-void swap(listint_t *back, listint_t *front); /* insertion sort list */
+void swapper(listint_t *back, listint_t *front); /* insertion sort list */
 
 #endif
