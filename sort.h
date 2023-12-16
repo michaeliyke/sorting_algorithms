@@ -50,5 +50,6 @@ void quicksrt(int A[], int first, int last, size_t size);
 void swap(int *x, int *y);
 
 void swapper(listint_t *back, listint_t *front); /* insertion sort list */
+int get_max(int *array, int size); /* counting sort */
 
 #endif

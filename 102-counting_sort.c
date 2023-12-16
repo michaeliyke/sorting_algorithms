@@ -13,19 +13,19 @@ void counting_sort(int *array, size_t size)
 	size_t idx, max_val = 0;
 	int *count, *temp;
 
-	if (array == NULL || size == 0)
+	if (array == NULL || size < 2)
 		return;
 
-	for (idx = 0; idx < size; idx++) /* find highest value */
-	{
-		if ((size_t)array[idx] > max_val)
-			max_val = array[idx];
-	}
-
-	count = malloc(sizeof(int) * (max_val + 1));
 	temp = malloc(sizeof(int) * size);
-	if (count == NULL || temp == NULL)
+	if (temp == NULL)
 		return;
+	max_val = get_max(array, size); /* get max value */
+	count = malloc(sizeof(int) * (max_val + 1));
+	if (count == NULL)
+	{
+		free(temp);
+		return;
+	}
 
 	for (idx = 0; idx < max_val + 1; idx++) /* initialize array to 0 */
 		count[idx] = 0;
@@ -37,6 +37,7 @@ void counting_sort(int *array, size_t size)
 		count[idx] += count[idx - 1];
 
 	print_array(count, (max_val + 1));
+
 	for (idx = 0; idx < size; idx++) /* store sorted array temporarily */
 	{
 		temp[count[array[idx]] - 1] = array[idx];
@@ -44,10 +45,28 @@ void counting_sort(int *array, size_t size)
 	}
 
 	for (idx = 0; idx < size; idx++)
-	{
 		array[idx] = temp[idx]; /* reconstruct sorted array */
-	}
 
 	free(count);
 	free(temp);
+}
+
+/**
+ * get_max - Gets the maximum value in an array of integers.
+ * @array: The array of integers.
+ * @size: The size of the array.
+ *
+ * Return: The maximum integer in the array.
+ */
+int get_max(int *array, int size)
+{
+	int max, idx;
+
+	for (max = array[0], idx = 1; idx < size; idx++)
+	{
+		if (array[idx] > max)
+			max = array[idx];
+	}
+
+	return (max);
 }
