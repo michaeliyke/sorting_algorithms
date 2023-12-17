@@ -33,7 +33,8 @@ void _print_int(int n)
 		sign = -1;
 		n = -n;
 	}
-	do {
+	do
+	{
 		buff[i++] = '0' + n % 10;
 		n /= 10;
 	} while (n > 0);
@@ -59,26 +60,34 @@ void _print_int(int n)
 }
 
 /**
- * print_array - prints array of ints
+ * _print_ints_n_txt - prints array of ints
  * @arr: the array to print
  * @size: size of the array
+ * @txt: text to print
  *
  * Return: void
  */
-void print_array(const int arr[], size_t size)
+void _print_ints_n_txt(int arr[], unsigned int size, char *txt)
 {
 	unsigned int i;
 
-	fflush(stdin);
+	fflush(stdout);
+	/*
+	write(1, txt, _strlen(txt)); */
+	printf("%s", txt);
 	for (i = 0; i < size; i++)
 	{
 		if (i + 1 == size)
-			_print_int(arr[i]);
+			/* _print_int(arr[i]); */
+			printf("%d", arr[i]);
 		else
 		{
-			_print_int(arr[i]);
-			_putstring(", ");
+			/* _print_int(arr[i]); */
+			printf("%d, ", arr[i]);
+			/* _putstring(", "); */
 		}
 	}
-	_putchar('\n');
+	/* _putchar('\n'); */
+	printf("\n");
+	fflush(stdout);
 }

@@ -47,7 +47,11 @@ void _print_int(int n);
 int partition(int array[], int start, int end, size_t size);
 void quicksrt(int A[], int first, int last, size_t size);
 void swap(int *x, int *y);
-
+void merge_sort(int *array, size_t size);
+void mergesrt(int A[], int left, int right);
+void merge(int A[], int left, int mid, int right);
 void swapper(listint_t *back, listint_t *front); /* insertion sort list */
+int *array_from_boundary(int A[], int left, int end);
+void _print_ints_n_txt(int arr[], unsigned int size, char *txt);
 
 #endif
