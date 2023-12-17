@@ -36,7 +36,7 @@ I learnt about...
 - []():
 
 > - [sort.h](): A Header file containing prototypes for all functions written in the project.
-> - [test_files](): A folder of test files. Provided by Alx.
+> - [main_files](): A folder of test files. Provided by Alx.
 
 ## Credits
 
