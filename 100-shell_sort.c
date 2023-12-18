@@ -4,7 +4,7 @@
  * shell_sort - shell sort implementation using the knuth sequence
  * Also known as increments sequence
  * @A: array to be sorted
- * @n: the size of the array
+ * @size: array size
  *
  * Return: void
  */
@@ -35,6 +35,13 @@ void shell_sort(int A[], size_t size)
 	}
 }
 
+/**
+ * shell_sort_gap_rdctn - shell sort with the gap reduction algorithm
+ * @A: the array to sort
+ * @n: array size
+ *
+ * Return: void
+ */
 void shell_sort_gap_rdctn(int A[], size_t n)
 {
 	int gap, i, j, size;
@@ -59,11 +66,8 @@ void shell_sort_gap_rdctn(int A[], size_t n)
 			{
 				if (A[i + gap] > A[i])
 					break;
-				else
-				{
-					swap(&A[i + gap], &A[i]);
-					_print_ints(A, size);
-				}
+				swap(&A[i + gap], &A[i]);
+				_print_ints(A, size);
 			}
 		}
 	}

@@ -19,7 +19,7 @@ void insertion_sort_list(listint_t **list)
 
 	while (current != NULL) /* iterate list from second node */
 	{
-		node = current; /* set working node */
+		node = current;		 /* set working node */
 		current = current->next; /* switch nodes while iterating */
 
 		while (node && node->prev) /* iterate backwards */
@@ -44,7 +44,7 @@ void insertion_sort_list(listint_t **list)
 }
 
 /**
- * swap - Swaps 2 adjacent nodes of a doubly-linked list.
+ * swapper - Swaps 2 adjacent nodes of a doubly-linked list.
  * @back: The address of the first node.
  * @front: The address of second node.
  *
