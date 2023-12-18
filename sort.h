@@ -61,7 +61,7 @@ void swap(int *x, int *y);
 void mergesrt(int A[], int left, int right);
 void merge(int A[], int left, int mid, int right);
 void swapper(listint_t *back, listint_t *front); /* insertion sort list */
-void cocktail_swap(listint_t *back, listint_t *front, listint_t **list)
+void cocktail_swap(listint_t *back, listint_t *front, listint_t **list);
 int get_max(int *array, int size); /* counting sort */
 int *array_from_boundary(int A[], int left, int end);
 void quicksort_fn_hoare(int A[], int low, int high, size_t size);
