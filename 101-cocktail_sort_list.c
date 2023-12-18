@@ -28,7 +28,7 @@ void cocktail_sort_list(listint_t **list)
 				flag = 1; /* update flag */
 				print_list((*list));
 			}
-			else
+			else /* already sorted */
 				current = current->next;
 		}
 
@@ -43,7 +43,7 @@ void cocktail_sort_list(listint_t **list)
 				flag = 1; /* update flag */
 				print_list((*list));
 			}
-			else
+			else /* already sorted */
 				current = current->prev;
 		}
 		current = current->next; /* set to unsorted part */
