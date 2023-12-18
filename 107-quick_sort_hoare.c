@@ -102,15 +102,11 @@ int hoare_lf_pvt(int A[], int left, int right, size_t size)
 	while (1)
 	{
 		/* move i right till it A[i] is >= pivot if at all  */
-		do
-		{
-			i++;
-		} while (A[i] < pivot);
+		while (A[++i] < pivot)
+			;
 		/* move j left till it A[j] is <= pivot if at all  */
-		do
-		{
-			j--;
-		} while (A[j] > pivot);
+		while (A[--j] > pivot)
+			;
 		/**
 		 * Have i and j crossed? Then the A partition is complete
 		 * We return j because it is the rightmost index of the left
