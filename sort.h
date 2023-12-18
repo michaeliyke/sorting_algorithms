@@ -31,7 +31,10 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
+void merge_sort(int *array, size_t size);
 
 /*** Utilities ***/
 int _writeline(char *str);
@@ -45,24 +48,21 @@ int _putchar(char c);
 int _putstring(char *str);
 void _print_ints(int arr[], unsigned int size);
 void _print_int(int n);
+void _print_ints_n_txt(int arr[], unsigned int size, char *txt);
+
 int partition(int array[], int start, int end, size_t size);
 void quicksrt(int A[], int first, int last, size_t size);
 void swap(int *x, int *y);
-void merge_sort(int *array, size_t size);
 void mergesrt(int A[], int left, int right);
 void merge(int A[], int left, int mid, int right);
 void swapper(listint_t *back, listint_t *front); /* insertion sort list */
 int *array_from_boundary(int A[], int left, int end);
-void _print_ints_n_txt(int arr[], unsigned int size, char *txt);
 int get_max(int *array, int size); /* counting sort */
-void shell_sort(int *array, size_t size);
-void quick_sort_hoare(int *array, size_t size);
-void quicksrt_hoare(int A[], int first, int last, size_t size);
-int hoare(int A[], int left, int right);
 
+void quick_sort_hoare(int *array, size_t size);
 void quicksort_fn_hoare(int A[], int low, int high, size_t size);
 int hoare_lf_pvt(int A[], int left, int right, size_t size);
-void printArray(int arr[], int size);
 int hoare_rt_pvt(int A[], int left, int right, size_t size);
+void printArray(int arr[], int size);
 
 #endif
