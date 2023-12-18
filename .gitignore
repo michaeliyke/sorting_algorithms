@@ -6,6 +6,8 @@ opcodes
 .vscode/*
 # Prerequisites
 *.d
+tmp/
+temp/
 
 # Object files
 *.o

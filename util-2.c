@@ -91,3 +91,19 @@ void _print_ints_n_txt(int arr[], unsigned int size, char *txt)
 	printf("\n");
 	fflush(stdout);
 }
+
+/**
+ * swap - swaps two integer pointers
+ * @x: first int variable
+ * @y: second int variable
+ *
+ * Return: void
+ */
+void swap(int *x, int *y)
+{
+	int tm;
+
+	tm = *x;
+	*x = *y;
+	*y = tm;
+}

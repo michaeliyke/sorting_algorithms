@@ -75,19 +75,3 @@ int partition(int A[], int start, int end, size_t size)
 	_print_ints(A, size);
 	return (i); /* i is the position of the pivot*/
 }
-
-/**
- * swap - swaps two integer pointers
- * @x: first int variable
- * @y: second int variable
- *
- * Return: void
- */
-void swap(int *x, int *y)
-{
-	int tm;
-
-	tm = *x;
-	*x = *y;
-	*y = tm;
-}

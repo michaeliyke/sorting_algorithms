@@ -56,4 +56,13 @@ int *array_from_boundary(int A[], int left, int end);
 void _print_ints_n_txt(int arr[], unsigned int size, char *txt);
 int get_max(int *array, int size); /* counting sort */
 void shell_sort(int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+void quicksrt_hoare(int A[], int first, int last, size_t size);
+int hoare(int A[], int left, int right);
+
+void quicksort_fn_hoare(int A[], int low, int high, size_t size);
+int hoare_lf_pvt(int A[], int left, int right, size_t size);
+void printArray(int arr[], int size);
+int hoare_rt_pvt(int A[], int left, int right, size_t size);
+
 #endif
