@@ -34,8 +34,8 @@ void shell_sort(int a[], size_t size)
 				if (a[i + gap] >= a[i])
 					break; /* >= makes it a stable sort */
 				swap(&a[i + gap], &a[i]);
-				print_array(a, size);
 			}
+		print_array(a, size);
 	}
 }
 
