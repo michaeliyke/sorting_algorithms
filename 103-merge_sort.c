@@ -9,6 +9,8 @@
  */
 void merge_sort(int *array, size_t size)
 {
+	if (array == NULL || size < 2)
+		return;
 	mergesrt(array, 0, size - 1);
 }
 

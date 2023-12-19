@@ -17,6 +17,9 @@ void selection_sort(int *nums, size_t len)
 	int temp;
 	unsigned int i, rightmost, leftmost;
 
+	if (nums == NULL || len < 2)
+		return;
+
 	for (i = 0; i < len; i++)
 	{
 		leftmost = i; /* save the leftmost position */

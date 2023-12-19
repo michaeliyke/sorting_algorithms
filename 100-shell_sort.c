@@ -12,6 +12,9 @@ void shell_sort(int A[], size_t size)
 {
 	int gap, i, j;
 
+	if (A == NULL || size < 2)
+		return;
+
 	/**
 	 * Initial calculation of gap using Knuth sequence
 	 * Also known as increments sequence

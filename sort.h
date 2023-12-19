@@ -64,5 +64,5 @@ void quicksort_fn_hoare(int A[], int low, int high, size_t size);
 int hoare_lf_pvt(int A[], int left, int right, size_t size);
 int hoare_rt_pvt(int A[], int left, int right, size_t size);
 void printArray(int arr[], int size);
-
+void heap_sort(int *array, size_t size);
 #endif
