@@ -1,5 +1,7 @@
 #include "sort.h"
 
+int get_max(int *array, int size);
+
 /**
  * counting_sort - Sorts an array of integers in ascending order using
  *                 the Counting sort algorithm.
