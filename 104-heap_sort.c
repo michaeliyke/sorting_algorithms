@@ -4,6 +4,12 @@
  * heapify - uses the sift-down approach to build a max heap of the structure.
  * This max heap building involves restoring the heap property of the
  * structure.
+ * @a: the array being sorted
+ * @n: the size of the current array
+ * @i: the index of current root
+ * @original_size: the real size of the array
+ *
+ * Return: void
  */
 void heapify(int a[], int n, int i, int original_size)
 {
@@ -23,6 +29,13 @@ void heapify(int a[], int n, int i, int original_size)
 	}
 }
 
+/**
+ * heap_sort - heap sort using the sift-down max heap approach
+ * @a: the array to sort
+ * @n: the size of the array
+ *
+ * Return: void
+ */
 void heap_sort(int a[], size_t n)
 {
 	int i;

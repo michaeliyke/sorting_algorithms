@@ -3,16 +3,16 @@
 /**
  * shell_sort - shell sort implementation using the knuth sequence
  * Also known as increments sequence
- * @A: array to be sorted
+ * @a: array to be sorted
  * @size: array size
  *
  * Return: void
  */
-void shell_sort(int A[], size_t size)
+void shell_sort(int a[], size_t size)
 {
 	int gap, i, j;
 
-	if (A == NULL || size < 2)
+	if (a == NULL || size < 2)
 		return;
 
 	/**
@@ -30,10 +30,10 @@ void shell_sort(int A[], size_t size)
 			/* i makes use of gap to swap values */
 			for (i = j - gap; i >= 0; i -= gap)
 			{
-				if (A[i + gap] >= A[i])
+				if (a[i + gap] >= a[i])
 					break; /* >= makes it a stable sort */
-				swap(&A[i + gap], &A[i]);
-				_print_ints(A, size);
+				swap(&a[i + gap], &a[i]);
+				_print_ints(a, size);
 			}
 	}
 }
