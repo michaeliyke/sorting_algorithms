@@ -30,15 +30,16 @@ void counting_sort(int *array, size_t size)
 	for (idx = 0; idx < max_val + 1; idx++) /* initialize array to 0 */
 		count[idx] = 0;
 
-	for (idx = 0; idx < size; idx++) /* update counting array */
+	for (idx = 0; idx < size; idx++) /* counting occurences */
 		count[array[idx]]++;
 
-	for (idx = 1; idx <= max_val; idx++) /* update counting array */
+	for (idx = 1; idx <= max_val; idx++) /* cumulative sum of occurences */
 		count[idx] += count[idx - 1];
 
 	print_array(count, (max_val + 1));
 
-	for (idx = 0; idx < size; idx++) /* store sorted array temporarily */
+	/* sort array in reverse to maintain 'stability' */
+	for (idx = size - 1; (int)idx >= 0; idx--)
 	{
 		temp[count[array[idx]] - 1] = array[idx];
 		count[array[idx]]--;
