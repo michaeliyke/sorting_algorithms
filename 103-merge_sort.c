@@ -9,9 +9,14 @@
  */
 void merge_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
+	int *temp; /* temporaray array for staging */
+
+	temp = malloc(sizeof(int) * size);
+	if (temp == NULL || array == NULL || size < 2)
 		return;
-	mergesrt(array, 0, size - 1);
+
+	mergesrt(array, 0, size, temp);
+	free(temp);
 }
 
 /**
@@ -24,17 +29,17 @@ void merge_sort(int *array, size_t size)
  *
  * Return: void
  */
-void mergesrt(int A[], int left, int right)
+void mergesrt(int A[], int left, int right, int *temp)
 {
 	int mid;
 
-	if (right <= left)
+	if (right <= left + 1)
 		return;
-	mid = (right + left) / 2;
+	mid = left + (right - left) / 2;
 	/* above avoids integer overflow for large integers */
-	mergesrt(A, left, mid);
-	mergesrt(A, mid + 1, right);
-	merge(A, left, mid, right);
+	mergesrt(A, left, mid, temp);
+	mergesrt(A, mid, right, temp);
+	merge(A, left, mid, right, temp);
 }
 
 /**
@@ -49,65 +54,31 @@ void mergesrt(int A[], int left, int right)
  *
  * Return: void
  */
-void merge(int A[], int left, int mid, int right)
+void merge(int A[], int left, int mid, int right, int *temp)
 {
-	int *temp; /* temporaray array for staging */
-
-	int i; /* counter for - left array*/
-	int j; /* counter for - right array*/
-	int k; /* counter for temp array */
-	int *left_data = array_from_boundary(A, left, mid);
-	int *right_data = array_from_boundary(A, mid + 1, right);
-
-	k = i = left;
-	j = mid + 1;
-	temp = malloc(sizeof(int) * (left + right + 1));
+	int i = left; /* counter for - left array*/
+	int j = mid;  /* counter for - right array*/
+	int k = 0;    /* counter for temp array */
 
 	printf("Merging...\n[left]: ");
-	print_array(left_data, mid - left + 1);
+	print_array(A + left, mid - left);
 	printf("[right]: ");
-	print_array(right_data, right - mid);
+	print_array(A + mid, right - mid);
 	/* copy from both left and rigth arrays but in a sorted manner */
-	while (i <= mid && j <= right)
-	{
-		if (A[i] < A[j])
-			temp[k++] = A[i++];
-		else
-			temp[k++] = A[j++];
-	}
+	while (i < mid && j < right)
+		temp[k++] = (A[i] < A[j]) ? A[i++] : A[j++];
 
 	/* copy left-overs of left array if any */
-	while (i <= mid)
+	while (i < mid)
 		temp[k++] = A[i++];
 
 	/* copy left-overs of right array if any */
-	while (j <= right)
+	while (j < right)
 		temp[k++] = A[j++];
 
 	/* move sorted data from the staging area to the main array */
-	for (k = left; k <= right; k++)
-		A[k] = temp[k];
-	free(temp);
+	for (k = 0, i = left; i < right;)
+		A[i++] = temp[k++];
 	printf("[Done]: ");
-	print_array(A, right - left + 1);
-}
-
-/**
- * array_from_boundary - returns a new array from a given boundary
- *  of another array
- * @A: the original array
- * @left: left boundry inclusive
- * @end: right boundary inclusive
- *
- * Return: a new array
- */
-int *array_from_boundary(int A[], int left, int end)
-{
-	int i, j;
-	int *new = malloc(sizeof(int) * (end - left + 1));
-
-	for (i = left, j = 0; i <= end; i++)
-		new[j++] = A[i];
-
-	return (new); /* malloc'd and should be free'd*/
+	print_array(A + left, right - left);
 }
