@@ -75,7 +75,7 @@ int hoare_rt_pvt(int A[], int left, int right, size_t size)
 		 * A[i] and A[j] are on the wrong sides of the pivot
 		 * swap them
 		 */
-		if (i <= j)
+		if (i < j)
 		{
 			swap(&A[i], &A[j]);
 			print_array(A, size);
