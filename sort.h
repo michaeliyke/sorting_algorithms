@@ -65,7 +65,7 @@ void _print_ints_n_txt(int arr[], unsigned int size, char *txt);
 
 /** Function specific **/
 void printArray(int arr[], int size);
-int partition(int array[], int start, int end, size_t size);
+int lomuto(int array[], int start, int end, size_t size);
 void quicksrt(int A[], int first, int last, size_t size);
 void mergesrt(int A[], int left, int right);
 void merge(int A[], int left, int mid, int right);

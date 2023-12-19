@@ -32,13 +32,13 @@ void quicksrt(int A[], int first, int last, size_t size)
 
 	if (last <= first)
 		return;
-	pivot = partition(A, first, last, size);
+	pivot = lomuto(A, first, last, size); /* lomuto partitioning scheme */
 	quicksrt(A, first, pivot - 1, size);
 	quicksrt(A, pivot + 1, last, size);
 }
 
 /**
- * partition - returns the new index of the pivot after partitioning
+ * lomuto - returns the new index of the pivot after partitioning
  * Partition means sorting A around the value of pivot. The sorting involves,
  * moving all elements less than the value of pivot to the left of it
  * and all elements greater or equal to the right of it.
@@ -50,22 +50,26 @@ void quicksrt(int A[], int first, int last, size_t size)
  *
  * Return: the new ondex of pivot
  */
-int partition(int A[], int start, int end, size_t size)
+int lomuto(int A[], int start, int end, size_t size)
 {
 	int pivot, i, j;
 
 	pivot = A[end]; /* Make the last element your pivot */
-	i = start - 1;	/* This will be -1 at the very beginning */
+	i = start;	/* This will be -1 at the very beginning */
 
-	for (j = start; j <= end - 1; j++) /* loop till just before the pivot */
+	for (j = start; j < end; j++) /* loop till just before the pivot */
 	{
 		if (A[j] < pivot)
 		{
-			i += 1;
-			swap(&A[i], &A[j]);
+			if (i < j)
+			{
+				swap(&A[i++], &A[j]);
+				print_array(A, size);
+			}
+			else
+				i++;
 		}
 	}
-
 	/***
 	 * The pivot is at position end
 	 * j is at the postion just before the pivot (end-1)
@@ -73,9 +77,12 @@ int partition(int A[], int start, int end, size_t size)
 	 * So bring pivot to the next of i:
 	 * by swaping its position with the one there
 	 */
-	i += 1;
-	swap(&A[i], &A[end]);
-	print_array(A, size);
+	if (A[i] > pivot)
+	{
+		swap(&A[i], &A[end]);
+		print_array(A, size);
+	}
+
 	return (i); /* i is the position of the pivot*/
 }
 
