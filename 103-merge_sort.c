@@ -63,9 +63,10 @@ void merge(int A[], int left, int mid, int right)
 	j = mid + 1;
 	temp = malloc(sizeof(int) * (left + right + 1));
 
-	printf("Merging...\n");
-	_print_ints_n_txt(left_data, mid - left + 1, "[left]: ");
-	_print_ints_n_txt(right_data, right - mid, "[right]: ");
+	printf("Merging...\n[left]: ");
+	print_array(left_data, mid - left + 1);
+	printf("[right]: ");
+	print_array(right_data, right - mid);
 	/* copy from both left and rigth arrays but in a sorted manner */
 	while (i <= mid && j <= right)
 	{
@@ -87,7 +88,8 @@ void merge(int A[], int left, int mid, int right)
 	for (k = left; k <= right; k++)
 		A[k] = temp[k];
 	free(temp);
-	_print_ints_n_txt(A, right - left + 1, "[Done]: ");
+	printf("[Done]: ");
+	print_array(A, right - left + 1);
 }
 
 /**

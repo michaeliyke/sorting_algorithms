@@ -45,24 +45,6 @@ void quick_sort_hoare(int *array, size_t size);
 
 /*** Utilities ***/
 
-/** util-0 **/
-int _strlen(char *string);
-void _print_ints(int arr[], unsigned int size);
-char *_strcpy(char *dest, char *src);
-int _putchar(char c);
-int _putstring(char *str);
-
-/** util-1 **/
-int _writeline(char *str);
-int _is_digits(char *x);
-int _isdigit(char x);
-int _atoi(char *str);
-int _isspace(char c);
-
-/** util-2 **/
-void _print_int(int n);
-void _print_ints_n_txt(int arr[], unsigned int size, char *txt);
-
 /** Function specific **/
 void printArray(int arr[], int size);
 int lomuto(int array[], int start, int end, size_t size);
