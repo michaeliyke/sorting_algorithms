@@ -60,12 +60,13 @@ void quicksrt(int A[], int first, int last, size_t size);
 void swap(int *x, int *y);
 void mergesrt(int A[], int left, int right);
 void merge(int A[], int left, int mid, int right);
-void swapper(listint_t *back, listint_t *front); /* insertion sort list */
-void cocktail_swap(listint_t *back, listint_t *front, listint_t **list);
-int get_max(int *array, int size); /* counting sort */
+int get_max(int *array, int size);
 int *array_from_boundary(int A[], int left, int end);
 void quicksort_fn_hoare(int A[], int low, int high, size_t size);
 int hoare_lf_pvt(int A[], int left, int right, size_t size);
 int hoare_rt_pvt(int A[], int left, int right, size_t size);
+
+void printArray(int arr[], int size);
+void heap_sort(int *array, size_t size);
 
 #endif
