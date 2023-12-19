@@ -32,7 +32,7 @@ void selection_sort(int *nums, size_t len)
 			temp = nums[leftmost];
 			nums[leftmost] = nums[i];
 			nums[i] = temp;
-			_print_ints(nums, len);
+			print_array(nums, len);
 		}
 	}
 }
