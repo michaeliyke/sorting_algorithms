@@ -1,5 +1,7 @@
 #include "sort.h"
 
+void cocktail_swap(listint_t *back, listint_t *front, listint_t **list);
+
 /**
  * cocktail_sort_list - Sorts a doubly linked list of integers in ascending
  *                      order using the Cocktail shaker sort algorithm.

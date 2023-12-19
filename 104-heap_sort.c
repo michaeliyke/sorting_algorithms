@@ -5,7 +5,7 @@
  * This max heap building involves restoring the heap property of the
  * structure.
  */
-void heapify(int a[], int n, int i)
+void heapify(int a[], int n, int i, int original_size)
 {
 	int largest = i;
 	int left = 2 * i + 1;
@@ -18,7 +18,8 @@ void heapify(int a[], int n, int i)
 	if (largest != i)
 	{
 		swap(&a[i], &a[largest]);
-		heapify(a, n, largest);
+		print_array(a, original_size);
+		heapify(a, n, largest, original_size);
 	}
 }
 
@@ -34,12 +35,12 @@ void heap_sort(int a[], size_t n)
 	 *
 	 */
 	for (i = n / 2 - 1; i >= 0; i--)
-		heapify(a, n, i); /* Build the correct maxheap structure */
+		heapify(a, n, i, n); /* Build the correct maxheap structure */
 
 	for (i = n - 1; i >= 1; i--)
 	{
 		swap(&a[0], &a[i]);
 		print_array(a, n);
-		heapify(a, i, 0);
+		heapify(a, i, 0, n);
 	}
 }
