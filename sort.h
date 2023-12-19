@@ -62,7 +62,6 @@ int _isspace(char c);
 /** util-2 **/
 void _print_int(int n);
 void _print_ints_n_txt(int arr[], unsigned int size, char *txt);
-void swap(int *x, int *y);
 
 /** Function specific **/
 void printArray(int arr[], int size);

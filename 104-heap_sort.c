@@ -1,4 +1,5 @@
 #include "sort.h"
+void swap(int *x, int *y);
 
 /**
  * heapify - uses the sift-down approach to build a max heap of the structure.
@@ -56,4 +57,20 @@ void heap_sort(int a[], size_t n)
 		print_array(a, n);
 		heapify(a, i, 0, n);
 	}
+}
+
+/**
+ * swap - swaps two integer pointers
+ * @x: first int variable
+ * @y: second int variable
+ *
+ * Return: void
+ */
+void swap(int *x, int *y)
+{
+	int tm;
+
+	tm = *x;
+	*x = *y;
+	*y = tm;
 }

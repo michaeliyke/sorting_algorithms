@@ -33,7 +33,8 @@ void _print_int(int n)
 		sign = -1;
 		n = -n;
 	}
-	do {
+	do
+	{
 		buff[i++] = '0' + n % 10;
 		n /= 10;
 	} while (n > 0);

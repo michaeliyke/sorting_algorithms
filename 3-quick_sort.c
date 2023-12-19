@@ -1,4 +1,5 @@
 #include "sort.h"
+void swap(int *x, int *y);
 
 /**
  * quick_sort - aliase to quicksrt
@@ -74,6 +75,22 @@ int partition(int A[], int start, int end, size_t size)
 	 */
 	i += 1;
 	swap(&A[i], &A[end]);
-	_print_ints(A, size);
+	print_array(A, size);
 	return (i); /* i is the position of the pivot*/
+}
+
+/**
+ * swap - swaps two integer pointers
+ * @x: first int variable
+ * @y: second int variable
+ *
+ * Return: void
+ */
+void swap(int *x, int *y)
+{
+	int tm;
+
+	tm = *x;
+	*x = *y;
+	*y = tm;
 }

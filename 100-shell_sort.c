@@ -1,4 +1,5 @@
 #include "sort.h"
+void swap(int *x, int *y);
 
 /**
  * shell_sort - shell sort implementation using the knuth sequence
@@ -33,7 +34,7 @@ void shell_sort(int a[], size_t size)
 				if (a[i + gap] >= a[i])
 					break; /* >= makes it a stable sort */
 				swap(&a[i + gap], &a[i]);
-				_print_ints(a, size);
+				print_array(a, size);
 			}
 	}
 }
@@ -70,8 +71,24 @@ void shell_sort_gap_rdctn(int A[], size_t n)
 				if (A[i + gap] > A[i])
 					break;
 				swap(&A[i + gap], &A[i]);
-				_print_ints(A, size);
+				print_array(A, size);
 			}
 		}
 	}
+}
+
+/**
+ * swap - swaps two integer pointers
+ * @x: first int variable
+ * @y: second int variable
+ *
+ * Return: void
+ */
+void swap(int *x, int *y)
+{
+	int tm;
+
+	tm = *x;
+	*x = *y;
+	*y = tm;
 }
