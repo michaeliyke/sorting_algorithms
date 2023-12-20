@@ -58,21 +58,13 @@ int get_max(int *array, int size)
  */
 void radix_count_sort(int *array, size_t size, int pos)
 {
-	int idx, exp;
-	int *count, *temp;
+	/* count will always be count[10] */
+	int count[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int idx, exp, *temp;
 
 	temp = malloc(sizeof(int) * size);
 	if (temp == NULL)
 		return;
-	count = malloc(sizeof(int) * 10);
-	if (count == NULL)
-	{
-		free(temp);
-		return;
-	}
-
-	for (idx = 0; idx < 10; idx++) /* initialize array to 0 */
-		count[idx] = 0;
 
 	for (idx = 0; idx < (int)size; idx++) /* counting occurences */
 		count[(array[idx] / pos) % 10]++;
@@ -91,6 +83,5 @@ void radix_count_sort(int *array, size_t size, int pos)
 	for (idx = 0; idx < (int)size; idx++)
 		array[idx] = temp[idx]; /* reconstruct sorted array */
 
-	free(count);
 	free(temp);
 }
