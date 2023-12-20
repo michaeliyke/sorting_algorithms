@@ -26,6 +26,7 @@ void merge_sort(int *array, size_t size)
  * the position of the first element itself
  * @right: the end of the array at current state,
  * the position of the last element itself
+ * @temp: temporary array
  *
  * Return: void
  */
@@ -51,6 +52,7 @@ void mergesrt(int A[], int left, int right, int *temp)
  * the position of the last element itself
  * @mid: the middle of the current array,
  * size of the left array is less than or equal to that of the right array
+ * @temp: temporary array
  *
  * Return: void
  */
