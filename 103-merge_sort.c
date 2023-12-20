@@ -34,13 +34,14 @@ void mergesrt(int A[], int left, int right, int *temp)
 {
 	int mid;
 
-	if (right <= left + 1)
-		return;
-	mid = left + (right - left) / 2;
-	/* above avoids integer overflow for large integers */
-	mergesrt(A, left, mid, temp);
-	mergesrt(A, mid, right, temp);
-	merge(A, left, mid, right, temp);
+	if (right - left > 1)
+	{
+		mid = left + (right - left) / 2;
+		/* above avoids integer overflow for large integers */
+		mergesrt(A, left, mid, temp);
+		mergesrt(A, mid, right, temp);
+		merge(A, left, mid, right, temp);
+	}
 }
 
 /**
